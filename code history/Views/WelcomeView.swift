@@ -27,9 +27,10 @@ struct WelcomeView: View {
                         NavigationLink(
                             destination: GameView(),
                             label: {
-                                StartGameTextView(str: "Give it a try!", geometry: geometry)
+                                BottomButtonTextView(str: "Give it a try!", geometry: geometry)
                             }
                         )
+                            .shadow(color: .black, radius: 2, x: 0.5, y: 0.5)
                             
                     }
                 }

@@ -12,7 +12,8 @@ struct Game {
     private(set) var currentQuestionIndex = 0
     private(set) var guesses = [Question: Int]()
     private(set) var isOver = false
-    private let questions = Question.allQuestions.shuffled()
+    private(set) var choiceConfirmed = false
+    private var questions = Question.allQuestions.shuffled()
     
     var guessCount: (correct: Int, incorrect: Int) {
         var count: (correct: Int, incorrect: Int) = (0, 0)
@@ -36,6 +37,7 @@ struct Game {
     
     mutating func makeGuessForCurrentQuestion(atIndex index: Int) {
         guesses[currentQuestion] = index
+        questions[currentQuestionIndex].updateSelectedGuess(atIndex: index)
     }
     
     mutating func updateGameStatus() {
@@ -45,4 +47,10 @@ struct Game {
             isOver = true
         }
     }
+    
+    mutating func confirmChoice(isConirmed: Bool) {
+        choiceConfirmed = isConirmed
+    }
+    
+    
 }

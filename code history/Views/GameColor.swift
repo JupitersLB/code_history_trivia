@@ -21,6 +21,10 @@ extension Color {
 }
 
 struct GameColor {
-   static let primaryColor = Color(0x66D1D8)
-   static let backgroundColor = Color(0xD5B9DF)
+    static let primaryColor = Color(0x66D1D8)
+    static let backgroundColor = Color(0xD5B9DF)
+    static let buttonColor = Color(.white)
+    static let selectedGuess = Color(0x9BDAE8)
+    static let incorrectGuess = Color(0xF42222)
+    static let correctGuess = Color(0x76D866)
 }

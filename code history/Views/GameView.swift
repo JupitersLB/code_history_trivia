@@ -6,32 +6,20 @@
 //
 
 import SwiftUI
-import WrappingStack
 
 struct GameView: View {
     
-    let question = Question(
-        questionText: "What was the first computer bug?",
-        possibleAnswers: ["Ant", "Beetle", "Moth", "Fly"],
-        correctAnswerIndex: 2)
+    @StateObject var viewModel = GameViewModel()
     
     var body: some View {
         ZStack{
             GameColor.backgroundColor.ignoresSafeArea()
             VStack {
-                Text(question.questionText)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                Spacer()
-                WrappingHStack(id: \.self) {
-                    ForEach(0..<question.possibleAnswers.count, id: \.self) { answerIndex in
-                        ChoiceButtonView(question: question, index: answerIndex)
-                    }
-                }
-                Spacer()
-                Text("1/10")
+                QuestionView(question: viewModel.currentQuestion)
+                Text(viewModel.questionProgressText)
             }
+            .navigationBarHidden(true)
+            .environmentObject(viewModel)
         }
     }
 }

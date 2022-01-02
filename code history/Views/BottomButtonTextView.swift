@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StartGameTextView: View {
+struct BottomButtonTextView: View {
     let str: String
     let geometry: GeometryProxy
     
@@ -25,10 +25,10 @@ struct StartGameTextView: View {
     }
 }
 
-struct StartGameTextView_Previews: PreviewProvider {
+struct BottomButtonTextView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
-            StartGameTextView(str: "Give it a Try!", geometry: geometry)
+            BottomButtonTextView(str: "Give it a Try!", geometry: geometry)
         }
     }
 }
