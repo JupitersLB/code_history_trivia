@@ -11,6 +11,10 @@
 		0C36BB1A2780361D002AB9F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36BB192780361D002AB9F0 /* ContentView.swift */; };
 		0C36BB1C2780361E002AB9F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C36BB1B2780361E002AB9F0 /* Assets.xcassets */; };
 		0C36BB1F2780361E002AB9F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C36BB1E2780361E002AB9F0 /* Preview Assets.xcassets */; };
+		0C36BB26278133E3002AB9F0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36BB25278133E3002AB9F0 /* Question.swift */; };
+		0C36BB28278134F7002AB9F0 /* ChoiceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36BB27278134F7002AB9F0 /* ChoiceTextView.swift */; };
+		0C36BB2B27813E63002AB9F0 /* WrappingStack in Frameworks */ = {isa = PBXBuildFile; productRef = 0C36BB2A27813E63002AB9F0 /* WrappingStack */; };
+		0C36BB2D278142FA002AB9F0 /* ChoiceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36BB2C278142FA002AB9F0 /* ChoiceButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,9 @@
 		0C36BB192780361D002AB9F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0C36BB1B2780361E002AB9F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C36BB1E2780361E002AB9F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0C36BB25278133E3002AB9F0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		0C36BB27278134F7002AB9F0 /* ChoiceTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTextView.swift; sourceTree = "<group>"; };
+		0C36BB2C278142FA002AB9F0 /* ChoiceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C36BB2B27813E63002AB9F0 /* WrappingStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +63,9 @@
 				0C36BB192780361D002AB9F0 /* ContentView.swift */,
 				0C36BB1B2780361E002AB9F0 /* Assets.xcassets */,
 				0C36BB1D2780361E002AB9F0 /* Preview Content */,
+				0C36BB25278133E3002AB9F0 /* Question.swift */,
+				0C36BB27278134F7002AB9F0 /* ChoiceTextView.swift */,
+				0C36BB2C278142FA002AB9F0 /* ChoiceButtonView.swift */,
 			);
 			path = "code history";
 			sourceTree = "<group>";
@@ -83,6 +94,9 @@
 			dependencies = (
 			);
 			name = "code history";
+			packageProductDependencies = (
+				0C36BB2A27813E63002AB9F0 /* WrappingStack */,
+			);
 			productName = "code history";
 			productReference = 0C36BB142780361D002AB9F0 /* code history.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 0C36BB0B2780361D002AB9F0;
+			packageReferences = (
+				0C36BB2927813E63002AB9F0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */,
+			);
 			productRefGroup = 0C36BB152780361D002AB9F0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C36BB26278133E3002AB9F0 /* Question.swift in Sources */,
 				0C36BB1A2780361D002AB9F0 /* ContentView.swift in Sources */,
+				0C36BB2D278142FA002AB9F0 /* ChoiceButtonView.swift in Sources */,
+				0C36BB28278134F7002AB9F0 /* ChoiceTextView.swift in Sources */,
 				0C36BB182780361D002AB9F0 /* code_historyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +359,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0C36BB2927813E63002AB9F0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/diniska/swiftui-wrapping-stack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0C36BB2A27813E63002AB9F0 /* WrappingStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C36BB2927813E63002AB9F0 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */;
+			productName = WrappingStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C36BB0C2780361D002AB9F0 /* Project object */;
 }

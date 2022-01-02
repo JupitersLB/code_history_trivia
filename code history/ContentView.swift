@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WrappingStack
 
 extension Color {
   init(_ hex: UInt, alpha: Double = 1) {
@@ -18,9 +19,6 @@ extension Color {
     )
   }
 }
-
-let primaryColor = Color(0x66D1D8)
-let backgroundColor = Color(0xD5B9DF)
 
 //struct ContentView: View {
 //    var body: some View {
@@ -53,55 +51,27 @@ let backgroundColor = Color(0xD5B9DF)
 //}
 
 struct ContentView: View {
+    
+    let primaryColor = Color(0x66D1D8)
+    let backgroundColor = Color(0xD5B9DF)
+    
+    let question = Question(
+        questionText: "What was the first computer bug?",
+        possibleAnswers: ["Ant", "Beetle", "Moth", "Fly"],
+        correctAnswerIndex: 2)
+    
     var body: some View {
         ZStack{
             backgroundColor.ignoresSafeArea()
             VStack {
-                Text("What is the name of the developer who wrote Ruby?")
+                Text(question.questionText)
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding()
                 Spacer()
-                VStack {
-                    HStack{
-                        Button(action: {
-                            print("Clicked 1")
-                        }, label: {
-                            Text("Answer 1")
-                        })
-                            .padding()
-                            .background(.white)
-                            .foregroundColor(.black)
-                            .font(.system(size: 18, weight: .thin))
-                        Button(action: {
-                            print("Clicked 2")
-                        }, label: {
-                            Text("Answer 2")
-                        })
-                            .padding()
-                            .background(.white)
-                            .foregroundColor(.black)
-                            .font(.system(size: 18, weight: .thin))
-                    }
-                    HStack{
-                        Button(action: {
-                            print("Clicked 3")
-                        }, label: {
-                            Text("Answer 3")
-                        })
-                            .padding()
-                            .background(.white)
-                            .foregroundColor(.black)
-                            .font(.system(size: 18, weight: .thin))
-                        Button(action: {
-                            print("Clicked 4")
-                        }, label: {
-                            Text("Answer 4")
-                        })
-                            .padding()
-                            .background(.white)
-                            .foregroundColor(.black)
-                            .font(.system(size: 18, weight: .thin))
+                WrappingHStack(id: \.self) {
+                    ForEach(0..<question.possibleAnswers.count, id: \.self) { answerIndex in
+                        ChoiceButtonView(question: question, index: answerIndex)
                     }
                 }
                 Spacer()
