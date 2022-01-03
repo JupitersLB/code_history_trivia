@@ -88,7 +88,7 @@ class GameViewModel: ObservableObject {
     
     func color(forOptionIndex optionIndex: Int, isConfirmed: Bool) -> Color {
          if let guessedIndex = game.guesses[currentQuestion] {
-             if guessedIndex != optionIndex && !isConfirmed {
+             if guessedIndex != optionIndex {
                  return GameColor.buttonColor
              } else if guessedIndex == currentQuestion.correctAnswerIndex && isConfirmed {
                  return GameColor.correctGuess

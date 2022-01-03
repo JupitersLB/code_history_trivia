@@ -24,7 +24,7 @@ struct ChoiceButtonView: View {
             .cornerRadius(50)
             .shadow(color: .black, radius: 0.5, x: 1, y: 1)
             .padding(10)
-            .disabled(viewModel.guessWasMade)
+            .disabled(viewModel.guessWasMade && viewModel.choiceConfirmed)
     }
 }
 
