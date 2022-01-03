@@ -20,6 +20,7 @@ struct BottomButtonTextView: View {
                 .background(GameColor.primaryColor)
                 .foregroundColor(.black)
                 .cornerRadius(50)
+                .shadow(color: .black, radius: 2, x: 0.5, y: 0.5)
             Spacer()
         }
     }

@@ -19,11 +19,12 @@ struct ChoiceButtonView: View {
             viewModel.makeGuess(atIndex: answerIndex)
         }) {
             ChoiceTextView(choiceText: question.possibleAnswers[answerIndex])
-                .background(viewModel.color(forOptionIndex: answerIndex, isConfirmed: viewModel.choiceConfirmed))
-                .cornerRadius(50)
         }
+            .background(viewModel.color(forOptionIndex: answerIndex, isConfirmed: viewModel.choiceConfirmed))
+            .cornerRadius(50)
             .shadow(color: .black, radius: 0.5, x: 1, y: 1)
             .padding(10)
+            .disabled(viewModel.guessWasMade)
     }
 }
 
@@ -34,6 +35,5 @@ struct ChoiceButtonView_Previews: PreviewProvider {
             answerIndex: Game().currentQuestionIndex
         )
             .environmentObject(GameViewModel())
-
     }
 }

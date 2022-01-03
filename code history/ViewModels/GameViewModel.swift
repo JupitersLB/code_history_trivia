@@ -32,6 +32,7 @@ class GameViewModel: ObservableObject {
         if let guessedIndex = game.guesses[currentQuestion] {
             if (guessedIndex == currentQuestion.correctAnswerIndex) {
                 return "Correct"
+                
             } else {
                 return "Incorrect"
             }
@@ -42,6 +43,30 @@ class GameViewModel: ObservableObject {
     
     var choiceConfirmed: Bool {
         game.choiceConfirmed
+    }
+    
+    var gameIsOver: Bool {
+        game.isOver
+    }
+    
+    var correctGuesses: Int {
+        game.guessCount.correct
+    }
+   
+    var incorrectGuesses: Int {
+        game.guessCount.incorrect
+    }
+    
+    var answerSquence: [Color] {
+        var colors: [Color] = []
+        for (question, guess) in game.guesses {
+            if question.correctAnswerIndex == guess {
+                colors.append(GameColor.correctGuess)
+            } else {
+                colors.append(GameColor.incorrectGuess)
+            }
+        }
+        return colors
     }
     
     func confirmChoice() {
@@ -65,12 +90,12 @@ class GameViewModel: ObservableObject {
          if let guessedIndex = game.guesses[currentQuestion] {
              if guessedIndex != optionIndex && !isConfirmed {
                  return GameColor.buttonColor
-             } else if guessedIndex == currentQuestion.correctAnswerIndex && isConfirmed && optionIndex == currentQuestion.selectedGuess {
+             } else if guessedIndex == currentQuestion.correctAnswerIndex && isConfirmed {
                  return GameColor.correctGuess
-             } else if guessedIndex != currentQuestion.correctAnswerIndex && isConfirmed && optionIndex == currentQuestion.selectedGuess {
+             } else if guessedIndex != currentQuestion.correctAnswerIndex && isConfirmed {
                  return GameColor.incorrectGuess
-             } else if isConfirmed {
-                 return GameColor.buttonColor
+             } else if guessedIndex == optionIndex {
+                 return GameColor.selectedGuess
              }
              else {
                  return GameColor.selectedGuess

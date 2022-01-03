@@ -11,7 +11,6 @@ struct Question: Hashable {
     let questionText: String
     let possibleAnswers: [String]
     let correctAnswerIndex: Int
-    var selectedGuess: Int
     
     static var allQuestions = [
         Question(
@@ -22,8 +21,7 @@ struct Question: Hashable {
                 "Bill Gates",
                 "Tim Berners-Lee"
             ],
-            correctAnswerIndex: 3,
-            selectedGuess: 0
+            correctAnswerIndex: 3
         ),
         Question(
             questionText: "What was the first object oriented programming language?",
@@ -33,13 +31,7 @@ struct Question: Hashable {
                 "Swift",
                 "C"
             ],
-            correctAnswerIndex: 0,
-            selectedGuess: 0
+            correctAnswerIndex: 0
         )
     ]
-    
-    mutating func updateSelectedGuess(atIndex index: Int) {
-        selectedGuess = index
-    }
-
 }

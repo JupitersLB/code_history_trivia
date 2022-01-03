@@ -37,7 +37,6 @@ struct QuestionView: View {
                     }) {
                         BottomButtonTextView(str: viewModel.choiceConfirmed ? "Next" : "Confirm", geometry: geometry)
                     }
-                    .shadow(color: .black, radius: 2, x: 0.5, y: 0.5)
                 }
                 .frame(maxWidth: .infinity, maxHeight: 60)
             }

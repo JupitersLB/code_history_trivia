@@ -37,7 +37,6 @@ struct Game {
     
     mutating func makeGuessForCurrentQuestion(atIndex index: Int) {
         guesses[currentQuestion] = index
-        questions[currentQuestionIndex].updateSelectedGuess(atIndex: index)
     }
     
     mutating func updateGameStatus() {
